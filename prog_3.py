@@ -18,17 +18,17 @@ def fact(n):
 
 def diviseur(n):
     diviseur = []
-    for i in range(1,n+1): # test tout les diviseur de 1 à 100
-        test = n%i # test la divisibilité
+    for i in range(1,n+1): # teste tous les diviseurs de 1 à 100
+        test = n%i # teste la divisibilité
         if test == 0:
-            diviseur.append(i) # ajoute le diviseur à la liste des diviseur
+            diviseur.append(i) # ajoute le diviseur à la liste des diviseurs
     return diviseur
 
 def syracuse(n):
     rep = []
     run = True
     while run:
-        rep.append(n) # ajout de la réponsse à la liste
+        rep.append(n) # ajout de la réponse à la liste
 
         test = n%2 # test paire
         if n == 1:
@@ -43,7 +43,7 @@ def syracuse(n):
 def vol(n):
     l = syracuse(n)
     rep = len(l)
-    return rep-1 # on rajout -1 pour ignoré la première étape
+    return rep-1 # on rajoute -1 pour ignorer la première étape
 
 def altitude(n):
     l = syracuse(n)
@@ -57,7 +57,7 @@ def max_vol(n):
     run = True
     i = 1
     while run:
-        t = vol(i) # récupération de la longeur de vol
+        t = vol(i) # récupération de la longueur de vol
         if t > n:
             x = i
             run = False# coupe la boucle
@@ -68,7 +68,7 @@ def max_alti(n):
     run = True
     i = 1
     while run:
-        t = altitude(i) # récupération de l'alltitude la plus haurte
+        t = altitude(i) # récupération de l'altitude la plus haurte
         if t > n:
             x = i
             run = False
