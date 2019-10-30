@@ -1,6 +1,9 @@
 from math import ceil, sqrt
 from sys import exit
 
+from secure_input import input_secure
+import fichier
+
 from PIL import Image
 
 
@@ -25,11 +28,8 @@ def encode(file, output):
             x_encode = 0
             y_encode += 1
 
-    try:
-        img.save(output)  # on sauvegarde l'image
-    except:
-        output = output + ".jpg"
-        img.save(output)
+    output = output + ".png"
+    img.save(output)
 
 
 def decode(image, output):
@@ -49,24 +49,14 @@ def decode(image, output):
     file.close()  # on ferme le ficher
 
 
-def input_secure():
-    while True:
-        try:
-            rep = int(input())
-            break
-        except ValueError:
-            print("Veuillez rentrer un chiffre SVP.")
-    return rep
-
-
-def choix_file(type):
+def choix_file(tipe):
     # type = 1 -> encode; type = 2 -> decode
-    if type == 1:
-        file = input("Nom du fichier avec le texte à encoder (le nom doit être exacte!): ")
+    if tipe == 1:
+        file = fichier.choix_fichiers(".txt")
         output = input("Nom du fichier de sortie (il peut exister ou pas): ")
         encode(file, output)
-    elif type == 2:
-        image = input("Nom de l'image avec le texte à décoder (le nom doit être exacte!): ")
+    elif tipe == 2:
+        image = fichier.choix_fichiers(".png")
         output = input("Nom du fichier de sortie (il peut exister ou pas): ")
         decode(image, output)
 
