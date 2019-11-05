@@ -22,7 +22,7 @@ def encode(file, output):
 
     for i in msg:
         color = ord(i)  # on détermine la couleur du pixel grâce à la valeur ASCII du caractère
-        img.putpixel((x_encode, y_encode), color)  # on code la couleur sur la pixel voulue
+        img.putpixel((x_encode, y_encode), color)  # on code la couleur sur le pixel voulu
         x_encode += 1  # on passe au pixel suivant
         if x_encode == x:
             x_encode = 0
@@ -41,7 +41,7 @@ def decode(image, output):
 
     for y_decode in range(0, y):
         for x_decode in range(2, x):
-            lettre = chr(img.getpixel((x_decode, y_decode)))  # on convertie la couleur en caractère
+            lettre = chr(img.getpixel((x_decode, y_decode)))  # on convertit la couleur en caractère
             msg = msg + lettre
 
     file.write(msg)  # on écrit dans le fichier
@@ -66,7 +66,7 @@ def intro():
 
 
 def menu():
-    print("Que voulez vous faire?")
+    print("Que voulez-vous faire?")
     print("1) Encoder un texte sous forme d'image")
     print("2) Décoder une image sous forme de texte")
     print("3) Quitter")
