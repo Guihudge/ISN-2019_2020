@@ -40,7 +40,7 @@ def decode(image, output):
     msg = ""
 
     for y_decode in range(0, y):
-        for x_decode in range(2, x):
+        for x_decode in range(0, x):
             lettre = chr(img.getpixel((x_decode, y_decode)))  # on convertit la couleur en caractère
             msg = msg + lettre
 
